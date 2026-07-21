@@ -4,7 +4,8 @@ import { redirect } from 'next/navigation'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions)
-  if (!session || session.user.role !== 'ADMIN') redirect('/dashboard')
+  if (!session?.user || (session.user as any).role !== 'ADMIN') redirect('/dashboard')
+
   return (
     <div className="min-h-screen bg-slate-950">
       <header className="border-b border-white/10 px-6 py-4">
