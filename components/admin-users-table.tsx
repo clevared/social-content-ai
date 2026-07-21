@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Trash2, Edit2, Check, X } from 'lucide-react'
 
-type User = { id: string; name: string | null; email: string; role: string; plan: string; credits: number; isActive: boolean; createdAt: string; _count: { contents: number } }
+type User = { id: string; name: string | null; email: string; role: string; plan: string; credits: number; isActive: boolean; createdAt: Date; _count: { contents: number } }
 
 export function AdminUsersTable({ users: initial }: { users: User[] }) {
   const [users, setUsers] = useState(initial)
